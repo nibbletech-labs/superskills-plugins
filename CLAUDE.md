@@ -8,8 +8,7 @@
 
 ```
 superskills-plugins/
-├── skills/              # Standalone skills
-├── plugins/             # Bundled plugins with skills
+├── skills/              # All skills (flat structure)
 ├── agents/              # Agent definitions
 ├── mcp-servers/         # MCP server configs
 ├── docs/                # Documentation and specs
@@ -36,6 +35,7 @@ Every `SKILL.md` file MUST include valid frontmatter for the superskills catalog
 - `icon` - Lucide icon name
 - `author` - Creator/maintainer
 - `version` - Semver version (e.g., 1.0.0)
+- `relatedSkills` - Array of related skill names (for grouping suggestions)
 - `allowed-tools` - Claude Code tools the skill uses
 
 **Full specification:** See `docs/FRONTMATTER_SPEC.md` for complete details, validation rules, and examples.
@@ -51,6 +51,7 @@ tags: [productivity, automation]
 icon: zap
 author: nibbletech-labs
 version: 1.0.0
+relatedSkills: [other-skill]
 ---
 ```
 

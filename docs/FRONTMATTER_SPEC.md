@@ -25,6 +25,7 @@ Every `SKILL.md` file must begin with YAML frontmatter between `---` delimiters.
 | `icon` | string | `file-text` | Lucide icon name for UI display. | `store` |
 | `author` | string | `unknown` | Creator or maintainer identifier. | `nibbletech-labs` |
 | `version` | string | `1.0.0` | Semantic version number. | `1.2.0` |
+| `relatedSkills` | array | `[]` | Related skill names for grouping suggestions. | `[marketplace-updater]` |
 | `allowed-tools` | string | - | Claude Code tools the skill uses. Not used by registry. | `Read, WebFetch` |
 
 ---
@@ -70,6 +71,7 @@ tags: [browse, search, discovery, installation, plugins]
 icon: store
 author: nibbletech-labs
 version: 1.0.0
+relatedSkills: [marketplace-updater]
 allowed-tools: Read, WebFetch
 ---
 ```
@@ -86,6 +88,7 @@ The validation script (`scripts/validate-skills.js`) enforces:
 4. **Category valid** - If provided, must be from the valid categories list
 5. **Tags is array** - If provided, must be a YAML array
 6. **Version format** - If provided, must match semver pattern (`/^\d+(\.\d+)*$/`)
+7. **relatedSkills is array** - If provided, must be array of lowercase skill names with hyphens
 
 ---
 
@@ -124,13 +127,14 @@ The `generate-registry.js` script produces `registry.json` with this structure p
   "name": "marketplace-browser",
   "displayName": "Marketplace Browser",
   "description": "...",
-  "path": "plugins/marketplace-management/skills/marketplace-browser/",
+  "path": "skills/marketplace-browser/",
   "url": "https://raw.githubusercontent.com/.../marketplace-browser/",
   "category": "marketplace",
   "tags": ["browse", "search"],
   "icon": "store",
   "author": "nibbletech-labs",
-  "version": "1.0.0"
+  "version": "1.0.0",
+  "relatedSkills": ["marketplace-updater"]
 }
 ```
 

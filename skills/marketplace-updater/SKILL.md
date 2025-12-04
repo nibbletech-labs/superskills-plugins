@@ -7,6 +7,7 @@ tags: [updates, upgrade, version, changelog]
 icon: refresh-cw
 author: nibbletech-labs
 version: 1.0.0
+relatedSkills: [marketplace-browser]
 allowed-tools: Read, WebFetch
 ---
 
@@ -61,7 +62,7 @@ Expected response:
 **If no updates:**
 
 ```markdown
-✅ You're up to date!
+You're up to date!
 
 Current version: v1.0.0
 Last checked: Just now
@@ -72,7 +73,7 @@ All components are on the latest versions.
 **If updates available (future):**
 
 ```markdown
-🎉 Updates Available!
+Updates Available!
 
 Your bundle: v1.0.0
 Latest: v1.1.0
@@ -165,9 +166,8 @@ To fix:
 4. Offer to help troubleshoot if issues
 5. Confirm completion after restart
 
-## Integration with marketplace-browser
+## Related Skills
 
-These skills work together:
 - **marketplace-browser**: Discover new/available plugins
 - **marketplace-updater**: Updates to installed plugins
 

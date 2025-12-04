@@ -1,14 +1,14 @@
 {
   "version": "1.0.0",
   "baseUrl": "https://raw.githubusercontent.com/nibbletech-labs/superskills-plugins/main/",
-  "generatedAt": "2025-12-04T10:45:11.937Z",
+  "generatedAt": "2025-12-04T11:28:18.323Z",
   "skills": [
     {
       "name": "marketplace-browser",
       "displayName": "Marketplace Browser",
       "description": "Browse and discover plugins available in your marketplace. Use when the user asks about available plugins, wants to find specific tools, or needs installation guidance.",
-      "path": "plugins/marketplace-management/skills/marketplace-browser/",
-      "url": "https://raw.githubusercontent.com/nibbletech-labs/superskills-plugins/main/plugins/marketplace-management/skills/marketplace-browser/",
+      "path": "skills/marketplace-browser/",
+      "url": "https://raw.githubusercontent.com/nibbletech-labs/superskills-plugins/main/skills/marketplace-browser/",
       "category": "marketplace",
       "tags": [
         "browse",
@@ -19,14 +19,17 @@
       ],
       "icon": "store",
       "author": "nibbletech-labs",
-      "version": "1.0.0"
+      "version": "1.0.0",
+      "relatedSkills": [
+        "marketplace-updater"
+      ]
     },
     {
       "name": "marketplace-updater",
       "displayName": "Marketplace Updater",
       "description": "Check for and install updates to marketplace plugins. Use when the user asks about updates, wants to see what's new, or needs to upgrade plugins.",
-      "path": "plugins/marketplace-management/skills/marketplace-updater/",
-      "url": "https://raw.githubusercontent.com/nibbletech-labs/superskills-plugins/main/plugins/marketplace-management/skills/marketplace-updater/",
+      "path": "skills/marketplace-updater/",
+      "url": "https://raw.githubusercontent.com/nibbletech-labs/superskills-plugins/main/skills/marketplace-updater/",
       "category": "marketplace",
       "tags": [
         "updates",
@@ -36,7 +39,10 @@
       ],
       "icon": "refresh-cw",
       "author": "nibbletech-labs",
-      "version": "1.0.0"
+      "version": "1.0.0",
+      "relatedSkills": [
+        "marketplace-browser"
+      ]
     },
     {
       "name": "supabase-cli-expert",
@@ -55,7 +61,8 @@
       ],
       "icon": "database",
       "author": "nibbletech-labs",
-      "version": "1.0.0"
+      "version": "1.0.0",
+      "relatedSkills": []
     }
   ],
   "metadata": {

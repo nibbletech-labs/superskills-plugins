@@ -47,6 +47,7 @@ function parseSkillFile(filePath) {
     icon: frontmatter.icon || 'file-text',
     author: frontmatter.author || 'unknown',
     version: frontmatter.version || '1.0.0',
+    relatedSkills: frontmatter.relatedSkills || [],
   };
 }
 

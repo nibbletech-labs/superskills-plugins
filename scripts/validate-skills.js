@@ -81,6 +81,19 @@ function validateSkill(filePath) {
     errors.push(`Tags must be an array, got: ${typeof frontmatter.tags}`);
   }
 
+  // Validate relatedSkills is an array of strings
+  if (frontmatter.relatedSkills) {
+    if (!Array.isArray(frontmatter.relatedSkills)) {
+      errors.push(`relatedSkills must be an array, got: ${typeof frontmatter.relatedSkills}`);
+    } else {
+      for (const skill of frontmatter.relatedSkills) {
+        if (typeof skill !== 'string' || !/^[a-z0-9-]+$/.test(skill)) {
+          errors.push(`Invalid relatedSkill: "${skill}" (must be lowercase skill name with hyphens)`);
+        }
+      }
+    }
+  }
+
   // Validate version format (loose semver)
   if (frontmatter.version && !/^\d+(\.\d+)*$/.test(frontmatter.version)) {
     errors.push(`Invalid version format: "${frontmatter.version}" (expected semver like 1.0.0)`);

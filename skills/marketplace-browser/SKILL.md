@@ -7,6 +7,7 @@ tags: [browse, search, discovery, installation, plugins]
 icon: store
 author: nibbletech-labs
 version: 1.0.0
+relatedSkills: [marketplace-updater]
 allowed-tools: Read, WebFetch
 ---
 
@@ -146,7 +147,7 @@ To fix:
 **User:** "What plugins are available?"
 
 **Actions:**
-1. Read .version.json → get marketplaceUrl
+1. Read .version.json -> get marketplaceUrl
 2. WebFetch to marketplaceUrl
 3. Parse plugins list
 4. Format and present with descriptions
