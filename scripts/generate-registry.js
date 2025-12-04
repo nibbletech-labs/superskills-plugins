@@ -7,10 +7,28 @@
 const fs = require('fs');
 const path = require('path');
 const matter = require('gray-matter');
+const { execSync } = require('child_process');
 
 const REPO_ROOT = path.join(__dirname, '..');
 const BASE_URL = 'https://raw.githubusercontent.com/nibbletech-labs/superskills-plugins/main/';
 const OUTPUT_FILE = path.join(REPO_ROOT, 'registry.json');
+
+/**
+ * Get the git commit timestamp for when a file was last modified.
+ * Returns epoch seconds (Unix timestamp).
+ */
+function getGitLastModified(filePath) {
+  try {
+    const timestamp = execSync(
+      `git log -1 --format="%ct" -- "${filePath}"`,
+      { cwd: REPO_ROOT, encoding: 'utf-8' }
+    ).trim();
+    return parseInt(timestamp, 10) || Math.floor(Date.now() / 1000);
+  } catch {
+    // Fallback to current time if not in git or file has no commits
+    return Math.floor(Date.now() / 1000);
+  }
+}
 
 function findSkillFiles(dir, files = []) {
   const entries = fs.readdirSync(dir, { withFileTypes: true });
@@ -48,6 +66,7 @@ function parseSkillFile(filePath) {
     author: frontmatter.author || 'unknown',
     version: frontmatter.version || '1.0.0',
     relatedSkills: frontmatter.relatedSkills || [],
+    updatedAt: getGitLastModified(filePath),
   };
 }
 

@@ -1,12 +1,12 @@
 ---
 name: superskills-updater
 displayName: SuperSkills Updater
-description: Check for and install updates to SuperSkills plugins. Use when the user asks about updates, wants to see what's new, or needs to upgrade plugins.
+description: Check for and install updates to SuperSkills bundles. Use when the user asks about updates, wants to see what's new, or needs to upgrade their bundle. Compares local plugin.json version against remote marketplace.json.
 category: superskills
 tags: [updates, upgrade, version, changelog]
 icon: refresh-cw
 author: nibbletech-labs
-version: 1.0.0
+version: 1.1.0
 relatedSkills: [superskills-browser]
 allowed-tools: Read, WebFetch
 ---
@@ -15,130 +15,195 @@ allowed-tools: Read, WebFetch
 
 ## Purpose
 
-Help users discover and install updates to their SuperSkills plugins through conversation.
+Help users discover and install updates to their SuperSkills bundles. Compares version timestamps and guides update installation.
 
 ## How It Works
 
-1. Reads `.version.json` to get current version and update check URL
-2. Fetches update information from marketplace API
-3. Compares versions and presents changes
-4. Guides user through update process
+1. Reads local plugin.json to get installed version and bundleId
+2. Fetches remote marketplace.json to get current version
+3. Compares epoch timestamps
+4. If remote > local, presents update information
+5. Guides user through update process
 
 ## Core Workflow
 
-### Step 1: Read Current Configuration
+### Step 1: Read Installed Version
 
-Read the version file:
+Read the plugin manifest:
 
 ```bash
-cat ${PLUGIN_ROOT}/.version.json
+cat ${CLAUDE_PLUGIN_ROOT}/.claude-plugin/plugin.json
+```
+
+Expected content:
+```json
+{
+  "name": "bundle-abc123",
+  "version": "1733324400",
+  "description": "Custom SuperSkills bundle"
+}
 ```
 
 Extract key fields:
-- `bundleId` - Unique identifier
-- `version` - Currently installed version
-- `updateCheckUrl` - API endpoint to check for updates
+- `name` - e.g., "bundle-abc123" → bundleId is "abc123"
+- `version` - e.g., "1733324400" (epoch timestamp)
 
-### Step 2: Check for Updates
+### Step 2: Fetch Current Version
 
-WebFetch to:
+Construct the marketplace URL from bundleId:
+
 ```
-${updateCheckUrl}?bundleId=${bundleId}&currentVersion=${version}
+https://superskills.dev/api/bundles/{bundleId}/marketplace.json
+```
+
+WebFetch to get current version:
+
+```
+WebFetch to https://superskills.dev/api/bundles/abc123/marketplace.json
 ```
 
 Expected response:
 ```json
 {
-  "updateAvailable": false,
-  "currentVersion": "1.0.0",
-  "latestVersion": "1.0.0",
-  "message": "You're on the latest version!",
-  "changes": []
+  "name": "superskills-bundle-abc123",
+  "plugins": [{
+    "name": "bundle-abc123",
+    "version": "1733410800",
+    "description": "Custom SuperSkills bundle"
+  }]
 }
 ```
 
-### Step 3: Present Update Information
+### Step 3: Compare Versions
+
+```
+localVersion  = 1733324400  (from plugin.json)
+remoteVersion = 1733410800  (from marketplace.json)
+
+if (parseInt(remoteVersion) > parseInt(localVersion)) {
+  // Update available!
+}
+```
+
+### Step 4: Present Update Information
+
+**If updates available:**
+
+```markdown
+Updates Available!
+
+Your bundle version: 1733324400 (Dec 4, 2025 10:00 AM)
+Latest version: 1733410800 (Dec 5, 2025 10:00 AM)
+
+The bundle has been updated since you installed it.
+
+To update:
+1. /plugin marketplace update superskills-bundle-{bundleId}
+2. /plugin uninstall bundle-{bundleId}@superskills-bundle-{bundleId}
+3. /plugin install bundle-{bundleId}@superskills-bundle-{bundleId}
+4. Restart Claude Code
+
+Would you like me to walk you through this?
+```
 
 **If no updates:**
 
 ```markdown
 You're up to date!
 
-Current version: v1.0.0
+Current version: 1733324400
 Last checked: Just now
 
-All components are on the latest versions.
+Your bundle is on the latest version.
 ```
 
-**If updates available (future):**
-
-```markdown
-Updates Available!
-
-Your bundle: v1.0.0
-Latest: v1.1.0
-
-What's New:
-- New MCP servers added
-- Improved skill performance
-
-To update:
-1. /plugin marketplace update superskills-marketplace
-2. /plugin uninstall mcp-bundle-{id}@superskills-marketplace
-3. /plugin install mcp-bundle-{id}@superskills-marketplace
-4. Restart Claude Code
-
-Would you like me to walk you through this?
-```
-
-### Step 4: Guide Update Installation
+### Step 5: Guide Update Installation
 
 When user confirms they want to update:
 
 ```markdown
-Let's update your plugins. Follow these steps:
+Let's update your bundle. Follow these steps:
 
 Step 1: Update the marketplace index
-Run: /plugin marketplace update superskills-marketplace
+Run: /plugin marketplace update superskills-bundle-{bundleId}
 
 Step 2: Remove old version
-Run: /plugin uninstall mcp-bundle-{id}@superskills-marketplace
+Run: /plugin uninstall bundle-{bundleId}@superskills-bundle-{bundleId}
 
 Step 3: Install new version
-Run: /plugin install mcp-bundle-{id}@superskills-marketplace
+Run: /plugin install bundle-{bundleId}@superskills-bundle-{bundleId}
 
 Step 4: Restart Claude Code
-This activates the new versions.
+This activates the new version.
 
 Ready to proceed? I can help if you encounter any issues.
 ```
 
 ## Error Handling
 
-### Update Check Failed
+### plugin.json Not Found
 
 ```markdown
-Couldn't check for updates.
+I couldn't read the plugin manifest.
+
+This could mean:
+- The bundle wasn't installed correctly
+- The plugin directory structure changed
+
+To fix:
+1. Try reinstalling the bundle
+2. Restart Claude Code
+```
+
+### Marketplace Not Reachable
+
+```markdown
+Couldn't fetch the latest version from SuperSkills.
 
 Possible causes:
 - No internet connection
-- Update service temporarily unavailable
+- SuperSkills service temporarily unavailable
 
 You can:
 1. Try again in a few moments
-2. Check internet connection
+2. Check your internet connection
+3. Visit superskills.dev to verify it's accessible
 ```
 
-### .version.json Missing
+### Bundle Not Found
 
 ```markdown
-I couldn't find the version configuration file.
+The bundle ID "{bundleId}" wasn't found on SuperSkills.
 
-This means the marketplace bundle may not be installed correctly.
+This could mean:
+- The bundle was deleted
+- The bundle ID is incorrect
 
-To fix:
-1. Reinstall from your marketplace URL
-2. Restart Claude Code
+Check your bundle at: https://superskills.dev
+```
+
+### Update Installation Failed
+
+If user reports update didn't work:
+
+```markdown
+Update troubleshooting:
+
+Did you complete all steps?
+1. [ ] /plugin marketplace update superskills-bundle-{bundleId}
+2. [ ] /plugin uninstall bundle-{bundleId}@superskills-bundle-{bundleId}
+3. [ ] /plugin install bundle-{bundleId}@superskills-bundle-{bundleId}
+4. [ ] Restart Claude Code
+
+If still on old version:
+
+1. Check installed version:
+   cat ${CLAUDE_PLUGIN_ROOT}/.claude-plugin/plugin.json
+
+2. Try full reinstall:
+   /plugin marketplace remove superskills-bundle-{bundleId}
+   /plugin marketplace add https://superskills.dev/api/bundles/{bundleId}/marketplace.json
+   /plugin install bundle-{bundleId}@superskills-bundle-{bundleId}
 ```
 
 ## Usage Examples
@@ -148,12 +213,13 @@ To fix:
 **User:** "Are there any updates?"
 
 **Actions:**
-1. Read .version.json
-2. WebFetch to updateCheckUrl with bundleId and currentVersion
-3. Parse response
-4. If updates available, format changes list
-5. Provide update commands
-6. If no updates, confirm current version
+1. Read plugin.json → get installed version and bundleId
+2. Construct marketplace URL from bundleId
+3. WebFetch to marketplace.json → get current version
+4. Compare epoch timestamps
+5. If remote > local, format update notification
+6. Provide update commands
+7. If no updates, confirm current version
 
 ### Example 2: Update Installation
 
@@ -161,14 +227,14 @@ To fix:
 
 **Actions:**
 1. Check for updates first
-2. If available, show what will change
+2. If available, show version comparison
 3. Provide step-by-step commands
 4. Offer to help troubleshoot if issues
 5. Confirm completion after restart
 
 ## Related Skills
 
-- **superskills-browser**: Discover new/available skills
-- **superskills-updater**: Updates to installed skills
+- **superskills-browser**: Discover new/available skills from catalog
+- **superskills-updater**: Updates to installed bundles
 
-Both use .version.json for zero-configuration operation.
+Together they provide complete plugin lifecycle management.

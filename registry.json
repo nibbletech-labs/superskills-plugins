@@ -1,49 +1,8 @@
 {
   "version": "1.0.0",
   "baseUrl": "https://raw.githubusercontent.com/nibbletech-labs/superskills-plugins/main/",
-  "generatedAt": "2025-12-04T11:28:18.323Z",
+  "generatedAt": "2025-12-04T18:13:50.172Z",
   "skills": [
-    {
-      "name": "superskills-browser",
-      "displayName": "SuperSkills Browser",
-      "description": "Browse and discover skills available in your SuperSkills marketplace. Use when the user asks about available plugins, wants to find specific tools, or needs installation guidance.",
-      "path": "skills/superskills-browser/",
-      "url": "https://raw.githubusercontent.com/nibbletech-labs/superskills-plugins/main/skills/superskills-browser/",
-      "category": "superskills",
-      "tags": [
-        "browse",
-        "search",
-        "discovery",
-        "installation",
-        "plugins"
-      ],
-      "icon": "store",
-      "author": "nibbletech-labs",
-      "version": "1.0.0",
-      "relatedSkills": [
-        "superskills-updater"
-      ]
-    },
-    {
-      "name": "superskills-updater",
-      "displayName": "SuperSkills Updater",
-      "description": "Check for and install updates to SuperSkills plugins. Use when the user asks about updates, wants to see what's new, or needs to upgrade plugins.",
-      "path": "skills/superskills-updater/",
-      "url": "https://raw.githubusercontent.com/nibbletech-labs/superskills-plugins/main/skills/superskills-updater/",
-      "category": "superskills",
-      "tags": [
-        "updates",
-        "upgrade",
-        "version",
-        "changelog"
-      ],
-      "icon": "refresh-cw",
-      "author": "nibbletech-labs",
-      "version": "1.0.0",
-      "relatedSkills": [
-        "superskills-browser"
-      ]
-    },
     {
       "name": "supabase-cli-expert",
       "displayName": "Supabase CLI Expert",
@@ -62,14 +21,58 @@
       "icon": "database",
       "author": "nibbletech-labs",
       "version": "1.0.0",
-      "relatedSkills": []
+      "relatedSkills": [],
+      "updatedAt": 1764845356
+    },
+    {
+      "name": "superskills-browser",
+      "displayName": "SuperSkills Browser",
+      "description": "Browse and discover plugins available in the SuperSkills marketplace. Use when the user asks about available plugins, wants to find specific tools, or needs installation guidance. Works with zero configuration.",
+      "path": "skills/superskills-browser/",
+      "url": "https://raw.githubusercontent.com/nibbletech-labs/superskills-plugins/main/skills/superskills-browser/",
+      "category": "superskills",
+      "tags": [
+        "browse",
+        "search",
+        "discovery",
+        "installation",
+        "plugins"
+      ],
+      "icon": "store",
+      "author": "nibbletech-labs",
+      "version": "1.1.0",
+      "relatedSkills": [
+        "superskills-updater"
+      ],
+      "updatedAt": 1764857881
+    },
+    {
+      "name": "superskills-updater",
+      "displayName": "SuperSkills Updater",
+      "description": "Check for and install updates to SuperSkills bundles. Use when the user asks about updates, wants to see what's new, or needs to upgrade their bundle. Compares local plugin.json version against remote marketplace.json.",
+      "path": "skills/superskills-updater/",
+      "url": "https://raw.githubusercontent.com/nibbletech-labs/superskills-plugins/main/skills/superskills-updater/",
+      "category": "superskills",
+      "tags": [
+        "updates",
+        "upgrade",
+        "version",
+        "changelog"
+      ],
+      "icon": "refresh-cw",
+      "author": "nibbletech-labs",
+      "version": "1.1.0",
+      "relatedSkills": [
+        "superskills-browser"
+      ],
+      "updatedAt": 1764857881
     }
   ],
   "metadata": {
     "totalSkills": 3,
     "categories": [
       "database",
-      "marketplace"
+      "superskills"
     ]
   }
 }
