@@ -1,21 +1,21 @@
 ---
-name: marketplace-browser
-displayName: Marketplace Browser
-description: Browse and discover plugins available in your marketplace. Use when the user asks about available plugins, wants to find specific tools, or needs installation guidance.
+name: superskills-browser
+displayName: SuperSkills Browser
+description: Browse and discover skills available in your SuperSkills marketplace. Use when the user asks about available plugins, wants to find specific tools, or needs installation guidance.
 category: marketplace
 tags: [browse, search, discovery, installation, plugins]
 icon: store
 author: nibbletech-labs
 version: 1.0.0
-relatedSkills: [marketplace-updater]
+relatedSkills: [superskills-updater]
 allowed-tools: Read, WebFetch
 ---
 
-# Marketplace Browser Skill
+# SuperSkills Browser Skill
 
 ## Purpose
 
-Help users discover and install plugins from their marketplace through natural conversation without leaving Claude Code.
+Help users discover and install skills from their SuperSkills marketplace through natural conversation without leaving Claude Code.
 
 ## How It Works
 

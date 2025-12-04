@@ -1,21 +1,21 @@
 ---
-name: marketplace-updater
-displayName: Marketplace Updater
-description: Check for and install updates to marketplace plugins. Use when the user asks about updates, wants to see what's new, or needs to upgrade plugins.
+name: superskills-updater
+displayName: SuperSkills Updater
+description: Check for and install updates to SuperSkills plugins. Use when the user asks about updates, wants to see what's new, or needs to upgrade plugins.
 category: marketplace
 tags: [updates, upgrade, version, changelog]
 icon: refresh-cw
 author: nibbletech-labs
 version: 1.0.0
-relatedSkills: [marketplace-browser]
+relatedSkills: [superskills-browser]
 allowed-tools: Read, WebFetch
 ---
 
-# Marketplace Updater Skill
+# SuperSkills Updater Skill
 
 ## Purpose
 
-Help users discover and install updates to their marketplace plugins through conversation.
+Help users discover and install updates to their SuperSkills plugins through conversation.
 
 ## How It Works
 
@@ -168,7 +168,7 @@ To fix:
 
 ## Related Skills
 
-- **marketplace-browser**: Discover new/available plugins
-- **marketplace-updater**: Updates to installed plugins
+- **superskills-browser**: Discover new/available skills
+- **superskills-updater**: Updates to installed skills
 
 Both use .version.json for zero-configuration operation.

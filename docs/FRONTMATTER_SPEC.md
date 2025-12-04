@@ -12,7 +12,7 @@ Every `SKILL.md` file must begin with YAML frontmatter between `---` delimiters.
 
 | Field | Type | Description | Example |
 |-------|------|-------------|---------|
-| `name` | string | Unique slug identifier. Lowercase letters, numbers, and hyphens only. | `marketplace-browser` |
+| `name` | string | Unique slug identifier. Lowercase letters, numbers, and hyphens only. | `superskills-browser` |
 | `displayName` | string | Human-readable name shown in UI. | `Marketplace Browser` |
 | `description` | string | Short description (1-2 sentences). Used in catalog and search. | `Browse and discover plugins...` |
 
@@ -25,7 +25,7 @@ Every `SKILL.md` file must begin with YAML frontmatter between `---` delimiters.
 | `icon` | string | `file-text` | Lucide icon name for UI display. | `store` |
 | `author` | string | `unknown` | Creator or maintainer identifier. | `nibbletech-labs` |
 | `version` | string | `1.0.0` | Semantic version number. | `1.2.0` |
-| `relatedSkills` | array | `[]` | Related skill names for grouping suggestions. | `[marketplace-updater]` |
+| `relatedSkills` | array | `[]` | Related skill names for grouping suggestions. | `[superskills-updater]` |
 | `allowed-tools` | string | - | Claude Code tools the skill uses. Not used by registry. | `Read, WebFetch` |
 
 ---
@@ -63,15 +63,15 @@ description: Does something useful.
 
 ```yaml
 ---
-name: marketplace-browser
-displayName: Marketplace Browser
-description: Browse and discover plugins available in your marketplace.
+name: superskills-browser
+displayName: SuperSkills Browser
+description: Browse and discover skills available in your SuperSkills marketplace.
 category: marketplace
 tags: [browse, search, discovery, installation, plugins]
 icon: store
 author: nibbletech-labs
 version: 1.0.0
-relatedSkills: [marketplace-updater]
+relatedSkills: [superskills-updater]
 allowed-tools: Read, WebFetch
 ---
 ```
@@ -124,17 +124,17 @@ The `generate-registry.js` script produces `registry.json` with this structure p
 
 ```json
 {
-  "name": "marketplace-browser",
-  "displayName": "Marketplace Browser",
+  "name": "superskills-browser",
+  "displayName": "SuperSkills Browser",
   "description": "...",
-  "path": "skills/marketplace-browser/",
-  "url": "https://raw.githubusercontent.com/.../marketplace-browser/",
+  "path": "skills/superskills-browser/",
+  "url": "https://raw.githubusercontent.com/.../superskills-browser/",
   "category": "marketplace",
   "tags": ["browse", "search"],
   "icon": "store",
   "author": "nibbletech-labs",
   "version": "1.0.0",
-  "relatedSkills": ["marketplace-updater"]
+  "relatedSkills": ["superskills-updater"]
 }
 ```
 

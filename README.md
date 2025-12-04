@@ -8,8 +8,8 @@ Official plugins developed by SuperSkills for Claude Code.
 Browse and manage plugins from your SuperSkills marketplace through conversational commands in Claude.
 
 **Includes:**
-- **marketplace-browser** - Discover available plugins by asking Claude
-- **marketplace-updater** - Check for updates to your installed plugins
+- **superskills-browser** - Discover available skills by asking Claude
+- **superskills-updater** - Check for updates to your installed skills
 
 ## Installation
 

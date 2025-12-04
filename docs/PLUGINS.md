@@ -66,7 +66,7 @@ Comprehensive tracker of all Claude Code plugins, skills, bundles, and agents ac
 **Type:** Bundle (Dual Skills)
 **Status:** ✅ Spec Complete
 **Doc:** ../../superskills/docs/specs/marketplace-management-bundle-spec.md
-**Description:** Dual-skill bundle for marketplace interaction. marketplace-browser discovers/installs plugins conversationally, marketplace-updater checks/applies updates. Zero configuration for public bundles.
+**Description:** Dual-skill bundle for SuperSkills marketplace interaction. superskills-browser discovers/installs skills conversationally, superskills-updater checks/applies updates. Zero configuration for public bundles.
 **Strategic Value:** Platform skill - auto-included in all marketplace bundles. Integrates with capability-discovery.
 **Last Updated:** Nov 3, 2025
 
