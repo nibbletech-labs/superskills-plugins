@@ -2,7 +2,7 @@
 name: superskills-updater
 displayName: SuperSkills Updater
 description: Check for and install updates to SuperSkills plugins. Use when the user asks about updates, wants to see what's new, or needs to upgrade plugins.
-category: marketplace
+category: superskills
 tags: [updates, upgrade, version, changelog]
 icon: refresh-cw
 author: nibbletech-labs

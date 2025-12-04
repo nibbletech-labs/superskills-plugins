@@ -2,7 +2,7 @@
 name: superskills-browser
 displayName: SuperSkills Browser
 description: Browse and discover skills available in your SuperSkills marketplace. Use when the user asks about available plugins, wants to find specific tools, or needs installation guidance.
-category: marketplace
+category: superskills
 tags: [browse, search, discovery, installation, plugins]
 icon: store
 author: nibbletech-labs

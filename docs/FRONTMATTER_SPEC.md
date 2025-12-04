@@ -20,7 +20,7 @@ Every `SKILL.md` file must begin with YAML frontmatter between `---` delimiters.
 
 | Field | Type | Default | Description | Example |
 |-------|------|---------|-------------|---------|
-| `category` | string | `uncategorized` | Primary category for filtering. Must be from valid list. | `marketplace` |
+| `category` | string | `uncategorized` | Primary category for filtering. Must be from valid list. | `superskills` |
 | `tags` | array | `[]` | Search keywords for discovery. | `[browse, search, plugins]` |
 | `icon` | string | `file-text` | Lucide icon name for UI display. | `store` |
 | `author` | string | `unknown` | Creator or maintainer identifier. | `nibbletech-labs` |
@@ -36,7 +36,7 @@ Skills must use one of these categories:
 
 | Category | Description |
 |----------|-------------|
-| `marketplace` | Marketplace management and plugin discovery |
+| `superskills` | SuperSkills platform management and plugin discovery |
 | `database` | Database operations, migrations, SQL |
 | `development` | Development tools and workflows |
 | `documentation` | Documentation and writing tools |
@@ -66,7 +66,7 @@ description: Does something useful.
 name: superskills-browser
 displayName: SuperSkills Browser
 description: Browse and discover skills available in your SuperSkills marketplace.
-category: marketplace
+category: superskills
 tags: [browse, search, discovery, installation, plugins]
 icon: store
 author: nibbletech-labs
@@ -129,7 +129,7 @@ The `generate-registry.js` script produces `registry.json` with this structure p
   "description": "...",
   "path": "skills/superskills-browser/",
   "url": "https://raw.githubusercontent.com/.../superskills-browser/",
-  "category": "marketplace",
+  "category": "superskills",
   "tags": ["browse", "search"],
   "icon": "store",
   "author": "nibbletech-labs",

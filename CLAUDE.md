@@ -30,7 +30,7 @@ Every `SKILL.md` file MUST include valid frontmatter for the superskills catalog
 - `description` - Short description (1-2 sentences)
 
 **Optional fields:**
-- `category` - One of: marketplace, database, development, documentation, testing, deployment, ai
+- `category` - One of: superskills, database, development, documentation, testing, deployment, ai
 - `tags` - Array of search keywords
 - `icon` - Lucide icon name
 - `author` - Creator/maintainer

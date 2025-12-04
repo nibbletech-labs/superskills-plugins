@@ -9,7 +9,7 @@
       "description": "Browse and discover skills available in your SuperSkills marketplace. Use when the user asks about available plugins, wants to find specific tools, or needs installation guidance.",
       "path": "skills/superskills-browser/",
       "url": "https://raw.githubusercontent.com/nibbletech-labs/superskills-plugins/main/skills/superskills-browser/",
-      "category": "marketplace",
+      "category": "superskills",
       "tags": [
         "browse",
         "search",
@@ -30,7 +30,7 @@
       "description": "Check for and install updates to SuperSkills plugins. Use when the user asks about updates, wants to see what's new, or needs to upgrade plugins.",
       "path": "skills/superskills-updater/",
       "url": "https://raw.githubusercontent.com/nibbletech-labs/superskills-plugins/main/skills/superskills-updater/",
-      "category": "marketplace",
+      "category": "superskills",
       "tags": [
         "updates",
         "upgrade",

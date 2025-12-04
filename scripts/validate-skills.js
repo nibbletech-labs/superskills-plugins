@@ -25,7 +25,7 @@ const OPTIONAL_FIELDS = {
 
 // Valid categories (extend as needed)
 const VALID_CATEGORIES = [
-  'marketplace',
+  'superskills',
   'database',
   'development',
   'documentation',
