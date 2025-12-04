@@ -1,11 +1,13 @@
 ---
 name: marketplace-browser
-description: |
-  Browse and discover plugins available in your marketplace. Use when the user
-  asks about available plugins, wants to find specific tools, or needs installation
-  guidance. Works with zero configuration for public bundles.
+displayName: Marketplace Browser
+description: Browse and discover plugins available in your marketplace. Use when the user asks about available plugins, wants to find specific tools, or needs installation guidance.
+category: marketplace
+tags: [browse, search, discovery, installation, plugins]
+icon: store
+author: nibbletech-labs
+version: 1.0.0
 allowed-tools: Read, WebFetch
-version: 1.0
 ---
 
 # Marketplace Browser Skill

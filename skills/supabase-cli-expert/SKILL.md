@@ -1,6 +1,12 @@
 ---
 name: supabase-cli-expert
-description: Expert guidance for Supabase CLI operations including database connections, migrations, RLS policies, Edge Functions, and troubleshooting. This skill should be used when working with Supabase projects, setting up database connections, managing schema migrations, deploying Edge Functions, configuring Row Level Security, or diagnosing connection and deployment issues. Triggers on Supabase CLI commands, database migration tasks, RLS policy creation, or connection troubleshooting.
+displayName: Supabase CLI Expert
+description: Expert guidance for Supabase CLI operations including database connections, migrations, RLS policies, Edge Functions, and troubleshooting.
+category: database
+tags: [supabase, cli, migrations, rls, edge-functions, postgresql]
+icon: database
+author: nibbletech-labs
+version: 1.0.0
 ---
 
 # Supabase CLI Expert

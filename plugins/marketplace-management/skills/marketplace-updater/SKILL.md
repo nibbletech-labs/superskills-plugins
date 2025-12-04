@@ -1,11 +1,13 @@
 ---
 name: marketplace-updater
-description: |
-  Check for and install updates to marketplace plugins. Use when the user asks
-  about updates, wants to see what's new, or needs to upgrade plugins.
-  Reads configuration from .version.json - no setup required.
+displayName: Marketplace Updater
+description: Check for and install updates to marketplace plugins. Use when the user asks about updates, wants to see what's new, or needs to upgrade plugins.
+category: marketplace
+tags: [updates, upgrade, version, changelog]
+icon: refresh-cw
+author: nibbletech-labs
+version: 1.0.0
 allowed-tools: Read, WebFetch
-version: 1.0
 ---
 
 # Marketplace Updater Skill

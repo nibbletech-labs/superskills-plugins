@@ -1,0 +1,68 @@
+{
+  "version": "1.0.0",
+  "baseUrl": "https://raw.githubusercontent.com/nibbletech-labs/superskills-plugins/main/",
+  "generatedAt": "2025-12-04T10:45:11.937Z",
+  "skills": [
+    {
+      "name": "marketplace-browser",
+      "displayName": "Marketplace Browser",
+      "description": "Browse and discover plugins available in your marketplace. Use when the user asks about available plugins, wants to find specific tools, or needs installation guidance.",
+      "path": "plugins/marketplace-management/skills/marketplace-browser/",
+      "url": "https://raw.githubusercontent.com/nibbletech-labs/superskills-plugins/main/plugins/marketplace-management/skills/marketplace-browser/",
+      "category": "marketplace",
+      "tags": [
+        "browse",
+        "search",
+        "discovery",
+        "installation",
+        "plugins"
+      ],
+      "icon": "store",
+      "author": "nibbletech-labs",
+      "version": "1.0.0"
+    },
+    {
+      "name": "marketplace-updater",
+      "displayName": "Marketplace Updater",
+      "description": "Check for and install updates to marketplace plugins. Use when the user asks about updates, wants to see what's new, or needs to upgrade plugins.",
+      "path": "plugins/marketplace-management/skills/marketplace-updater/",
+      "url": "https://raw.githubusercontent.com/nibbletech-labs/superskills-plugins/main/plugins/marketplace-management/skills/marketplace-updater/",
+      "category": "marketplace",
+      "tags": [
+        "updates",
+        "upgrade",
+        "version",
+        "changelog"
+      ],
+      "icon": "refresh-cw",
+      "author": "nibbletech-labs",
+      "version": "1.0.0"
+    },
+    {
+      "name": "supabase-cli-expert",
+      "displayName": "Supabase CLI Expert",
+      "description": "Expert guidance for Supabase CLI operations including database connections, migrations, RLS policies, Edge Functions, and troubleshooting.",
+      "path": "skills/supabase-cli-expert/",
+      "url": "https://raw.githubusercontent.com/nibbletech-labs/superskills-plugins/main/skills/supabase-cli-expert/",
+      "category": "database",
+      "tags": [
+        "supabase",
+        "cli",
+        "migrations",
+        "rls",
+        "edge-functions",
+        "postgresql"
+      ],
+      "icon": "database",
+      "author": "nibbletech-labs",
+      "version": "1.0.0"
+    }
+  ],
+  "metadata": {
+    "totalSkills": 3,
+    "categories": [
+      "database",
+      "marketplace"
+    ]
+  }
+}

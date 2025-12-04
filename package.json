@@ -1,0 +1,13 @@
+{
+  "name": "superskills-plugins",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "validate": "node scripts/validate-skills.js",
+    "generate-registry": "node scripts/generate-registry.js",
+    "build": "npm run validate && npm run generate-registry"
+  },
+  "devDependencies": {
+    "gray-matter": "^4.0.3"
+  }
+}
