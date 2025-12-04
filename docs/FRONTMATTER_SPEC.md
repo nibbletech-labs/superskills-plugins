@@ -134,8 +134,19 @@ The `generate-registry.js` script produces `registry.json` with this structure p
   "icon": "store",
   "author": "nibbletech-labs",
   "version": "1.0.0",
-  "relatedSkills": ["superskills-updater"]
+  "relatedSkills": ["superskills-updater"],
+  "updatedAt": 1764857881
 }
 ```
+
+### Auto-generated Fields
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `path` | string | Relative path from repo root |
+| `url` | string | Full URL to skill directory on GitHub |
+| `updatedAt` | number | Unix timestamp (epoch seconds) of last git commit that modified the skill |
+
+The `updatedAt` field is used for bundle version calculation - bundles use `max(skill.updatedAt)` to detect when any skill has been updated.
 
 Note: `allowed-tools` is **not** included in the registry - it's only for Claude Code's skill loading.
